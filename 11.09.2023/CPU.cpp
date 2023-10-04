@@ -1,0 +1,44 @@
+#include "CPU.h"
+
+CPU::CPU(const char* n, double p)
+{
+	name = new char[strlen(n) + 1];
+	strcpy_s(name, strlen(n) + 1, n);
+	price = p;
+}
+
+void CPU::PrintCPU()
+{
+	cout << "CPU name: " << name << endl;
+}
+
+CPU::~CPU()
+{
+	delete[]name;
+}
+
+const char* CPU::getName()
+{
+	return name;
+}
+
+double CPU::getPrice()
+{
+	return price;
+}
+
+void CPU::setName(const char* n)
+{
+	if (name != nullptr)
+	{
+		cout << "Delete -> " << name << "... \n";
+		delete[]name;
+	}
+	name = new char[strlen(n) + 1];
+	strcpy_s(name, strlen(n) + 1, n);
+}
+
+void CPU::setPrice(double p)
+{
+	price = p;
+}
