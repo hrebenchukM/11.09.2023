@@ -5,26 +5,25 @@ using namespace std;
 int Laptop::count = 0;
 
 
-
-
-
-
-Laptop::Laptop(const char* n, double p) : cpu("nullptr", 0.0), ssd("nullptr", 0.0), video("nullptr", 0.0), ram("nullptr", 0.0), price(p)
+Laptop::Laptop(const char* n) :cpu(nullptr, 0), ssd(nullptr, 0), video(nullptr, 0), ram(nullptr, 0)
 {
 	name = new char[strlen(n) + 1];
 	strcpy_s(name, strlen(n) + 1, n);
-
 }
 
-Laptop::Laptop(const char* n, double p, const char* c) : Laptop(n, p)//делегирование 
+Laptop::Laptop(const char* n, double p) :Laptop(n)//делегирование2
 {
-	
+	price = p;
+}
+
+Laptop::Laptop(const char* n, double p, const char* c) : Laptop(n, p)//делегирование 3
+{
 	color = new char[strlen(c) + 1];
 	strcpy_s(color, strlen(c) + 1, c);
 }
 
 Laptop::Laptop(const char* n, double p, const char* c, const char* RAM_name, double RAM_price, const char* VIDEOCARD_name, double VIDEOCARD_price,
-	const char* SSD_name, double SSD_price, const char* CPU_name,double CPU_price) 
+	const char* SSD_name, double SSD_price, const char* CPU_name, double CPU_price)
 	: cpu(CPU_name, CPU_price), ssd(SSD_name, SSD_price),
 	video(VIDEOCARD_name, VIDEOCARD_price), ram(RAM_name, RAM_price), price(p)//инициализаторы
 {
@@ -43,9 +42,9 @@ Laptop::Laptop(const char* n, double p, const char* c, const char* RAM_name, dou
 
 Laptop::~Laptop()
 {
-		delete[]name;
-		delete[]color;
-		--count;
+	delete[]name;
+	delete[]color;
+	--count;
 }
 
 void Laptop::PrintLaptop()
@@ -95,7 +94,7 @@ void Laptop::setColor(const char* c)
 		cout << "Delete -> " << color << "... \n";
 		delete[]color;
 	}
-	 color = new char[strlen(c) + 1];
+	color = new char[strlen(c) + 1];
 	strcpy_s(color, strlen(c) + 1, c);
 }
 
@@ -128,7 +127,7 @@ void  Laptop::Input()
 	cout << "Enter name of RAM: ";
 	cin >> buff;
 	ram.setName(buff);
-	
+
 	cout << "Enter price of RAM ";
 	cin >> price;
 	ram.setPrice(price);
@@ -140,7 +139,7 @@ void  Laptop::Input()
 	cout << "Enter price of VIDEOCARD";
 	cin >> price;
 	video.setPrice(price);
-	 
+
 	cout << "Enter name of SSD: ";
 	cin >> buff;
 	ssd.setName(buff);

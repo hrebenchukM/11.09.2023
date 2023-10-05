@@ -11,19 +11,16 @@ class Laptop
 	char* name;
 	char* color;
 	double price;//Sum of all elements
-	CPU cpu;
-	SSD ssd;
-	VIDEOCARD video;
-	RAM ram;
+	CPU cpu;/*CPU();//конструктор по умолчанию отсуствует*/
+	SSD ssd;/*SSD();//конструктор по умолчанию отсуствует*/
+	VIDEOCARD video;/*VIDEOCARD();//конструктор по умолчанию отсуствует*/
+	RAM ram;/*RAM();//конструктор по умолчанию отсуствует*/
 	
 
 
 public:
-
-
-
-
 	static int count;
+	Laptop(const char* n);
 	Laptop(const char* n, double p);
 	Laptop(const char* n, double p, const char* c);
 
