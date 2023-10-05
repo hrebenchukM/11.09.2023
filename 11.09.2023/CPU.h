@@ -10,6 +10,7 @@ double price;
 public:
 
 	/*CPU();//конструктор по умолчанию отсуствует*/
+	CPU(CPU& obj);
 	CPU(const char* n, double p);
 	void PrintCPU();
 	~CPU();

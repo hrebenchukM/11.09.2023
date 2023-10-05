@@ -4,6 +4,15 @@
 
 /*VIDEOCARD();//конструктор по умолчанию отсуствует*/
 
+VIDEOCARD::VIDEOCARD(VIDEOCARD& obj)
+{
+	name = new char[strlen(obj.name) + 1];
+	strcpy_s(name, strlen(obj.name) + 1, obj.name);
+	price = obj.price;
+	cout << "Copy constructor\n";
+}
+
+
 VIDEOCARD::VIDEOCARD(const char* n, double p)
 {
 	name = new char[strlen(n) + 1];

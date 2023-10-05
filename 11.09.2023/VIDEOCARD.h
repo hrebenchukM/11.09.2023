@@ -10,6 +10,7 @@ class VIDEOCARD
 	public:
 
 		/*VIDEOCARD();//конструктор по умолчанию отсуствует*/
+		VIDEOCARD(VIDEOCARD& obj);
 		VIDEOCARD(const char* n, double p);
 		void PrintVIDEOCARD();
 		~VIDEOCARD();

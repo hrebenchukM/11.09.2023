@@ -10,6 +10,7 @@ class RAM
 
 		/*RAM();//конструктор по умолчанию отсуствует*/
 		RAM(const char* n,double p);
+		RAM(RAM& obj);
 		void PrintRAM();
 		~RAM();
 

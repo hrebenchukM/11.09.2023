@@ -9,6 +9,14 @@ RAM::RAM(const char* n, double p):price(p)
 	price = p;
 }
 
+RAM::RAM(RAM& obj)
+{
+	name = new char[strlen(obj.name) + 1];
+	strcpy_s(name, strlen(obj.name) + 1, obj.name);
+	price = obj.price;
+	cout << "Copy constructor\n";
+}
+
 void RAM::PrintRAM()
 {
 	cout << "RAM name: " << name << endl;

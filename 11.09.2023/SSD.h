@@ -9,6 +9,7 @@ double price;
 public:
 
 	/*SSD();//конструктор по умолчанию отсуствует*/
+	SSD(SSD& obj);
 	SSD(const char* n, double p);
 	void PrintSSD();
 	~SSD();

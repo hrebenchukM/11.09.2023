@@ -2,6 +2,14 @@
 
 /*SSD();//конструктор по умолчанию отсуствует*/
 
+SSD::SSD(SSD& obj)
+{
+	name = new char[strlen(obj.name) + 1];
+	strcpy_s(name, strlen(obj.name) + 1, obj.name);
+	price = obj.price;
+	cout << "Copy constructor\n";
+}
+
 SSD::SSD(const char* n, double p)
 {
 	name = new char[strlen(n) + 1];

@@ -22,6 +22,17 @@ Laptop::Laptop(const char* n, double p, const char* c) : Laptop(n, p)//делегиров
 	strcpy_s(color, strlen(c) + 1, c);
 }
 
+Laptop::Laptop(Laptop& lap):cpu(lap.cpu),ram(lap.ram),ssd(lap.ssd),video(lap.video)
+{
+	name = new char[strlen(lap.name) + 1];
+	strcpy_s(name, strlen(lap.name) + 1, lap.name);
+	price = lap.price;
+	color = new char[strlen(lap.color) + 1];
+	strcpy_s(color, strlen(lap.color) + 1, lap.color);
+}
+
+
+
 Laptop::Laptop(const char* n, double p, const char* c, const char* RAM_name, double RAM_price, const char* VIDEOCARD_name, double VIDEOCARD_price,
 	const char* SSD_name, double SSD_price, const char* CPU_name, double CPU_price)
 	: cpu(CPU_name, CPU_price), ssd(SSD_name, SSD_price),

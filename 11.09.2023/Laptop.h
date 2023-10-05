@@ -23,7 +23,7 @@ public:
 	Laptop(const char* n);
 	Laptop(const char* n, double p);
 	Laptop(const char* n, double p, const char* c);
-
+	Laptop(Laptop& lap);
 	Laptop(const char* n, double p, const char* c, const char* RAM_name, double RAM_price, const char* VIDEOCARD_name, double VIDEOCARD_price,
 		const char* SSD_name, double SSD_price, const char* CPU_name, double CPU_price);
 	void PrintLaptop();
