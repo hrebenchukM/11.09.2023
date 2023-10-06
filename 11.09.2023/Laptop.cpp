@@ -29,6 +29,7 @@ Laptop::Laptop(Laptop& lap):cpu(lap.cpu),ram(lap.ram),ssd(lap.ssd),video(lap.vid
 	price = lap.price;
 	color = new char[strlen(lap.color) + 1];
 	strcpy_s(color, strlen(lap.color) + 1, lap.color);
+	cout << "Copy constructor Laptop\n";
 }
 
 
@@ -56,6 +57,7 @@ Laptop::~Laptop()
 	delete[]name;
 	delete[]color;
 	--count;
+	cout << "Destructor Laptop" << endl;
 }
 
 void Laptop::PrintLaptop()

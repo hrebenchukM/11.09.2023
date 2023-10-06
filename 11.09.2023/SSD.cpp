@@ -7,7 +7,7 @@ SSD::SSD(SSD& obj)
 	name = new char[strlen(obj.name) + 1];
 	strcpy_s(name, strlen(obj.name) + 1, obj.name);
 	price = obj.price;
-	cout << "Copy constructor\n";
+	cout << "Copy constructor SSD\n";
 }
 
 SSD::SSD(const char* n, double p)
@@ -15,6 +15,7 @@ SSD::SSD(const char* n, double p)
 	name = new char[strlen(n) + 1];
 	strcpy_s(name, strlen(n) + 1, n);
 	price = p;
+	cout << "Constructor with 2 SSD\n";
 }
 
 void SSD::PrintSSD()
@@ -25,6 +26,7 @@ void SSD::PrintSSD()
 SSD::~SSD()
 {
 	delete[]name;
+	cout << "Destructor SSD" << endl;
 }
 
 const char* SSD::getName()

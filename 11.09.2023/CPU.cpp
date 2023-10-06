@@ -8,7 +8,7 @@ CPU::CPU(CPU& obj)
 	name = new char[strlen(obj.name) + 1];
 	strcpy_s(name, strlen(obj.name) + 1, obj.name);
 	price = obj.price;
-	cout << "Copy constructor\n";
+	cout << "Copy constructor CPU\n";
 }
 
 CPU::CPU(const char* n, double p)
@@ -16,6 +16,7 @@ CPU::CPU(const char* n, double p)
 	name = new char[strlen(n) + 1];
 	strcpy_s(name, strlen(n) + 1, n);
 	price = p;
+	cout << "Constructor with 2 CPU\n";
 }
 
 void CPU::PrintCPU()
@@ -26,6 +27,7 @@ void CPU::PrintCPU()
 CPU::~CPU()
 {
 	delete[]name;
+	cout << "Destructor CPU" << endl;
 }
 
 const char* CPU::getName()
