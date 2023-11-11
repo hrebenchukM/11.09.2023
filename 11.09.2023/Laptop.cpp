@@ -5,7 +5,7 @@ using namespace std;
 int Laptop::count = 0;
 
 
-Laptop::Laptop(const char* n) :cpu(nullptr, 0), ssd(nullptr, 0), video(nullptr, 0), ram(nullptr, 0)
+Laptop::Laptop(const char* n) :cpu(nullptr, 0), ssd(nullptr, 0), video(nullptr), ram(nullptr, 0)
 {
 	name = new char[strlen(n) + 1];
 	strcpy_s(name, strlen(n) + 1, n);
@@ -34,10 +34,10 @@ Laptop::Laptop(Laptop& lap):cpu(lap.cpu),ram(lap.ram),ssd(lap.ssd),video(lap.vid
 
 
 
-Laptop::Laptop(const char* n, double p, const char* c, const char* RAM_name, double RAM_price, const char* VIDEOCARD_name, double VIDEOCARD_price,
+Laptop::Laptop(const char* n, double p, const char* c, const char* RAM_name, double RAM_price, VIDEOCARD* video,
 	const char* SSD_name, double SSD_price, const char* CPU_name, double CPU_price)
 	: cpu(CPU_name, CPU_price), ssd(SSD_name, SSD_price),
-	video(VIDEOCARD_name, VIDEOCARD_price), ram(RAM_name, RAM_price), price(p)//инициализаторы
+	video(video), ram(RAM_name, RAM_price), price(p)//инициализаторы
 {
 	name = new char[strlen(n) + 1];
 	strcpy_s(name, strlen(n) + 1, n);
@@ -68,7 +68,7 @@ void Laptop::PrintLaptop()
 
 	cpu.PrintCPU();
 	ssd.PrintSSD();
-	video.PrintVIDEOCARD();
+	video->PrintVIDEOCARD();
 	ram.PrintRAM();
 
 	//cout << count << endl;
@@ -147,11 +147,11 @@ void  Laptop::Input()
 
 	cout << "Enter name of VIDEOCARD: ";
 	cin >> buff;
-	video.setName(buff);
+	video->setName(buff);
 
 	cout << "Enter price of VIDEOCARD";
 	cin >> price;
-	video.setPrice(price);
+	video->setPrice(price);
 
 	cout << "Enter name of SSD: ";
 	cin >> buff;
